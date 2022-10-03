@@ -2,7 +2,7 @@ import design5.PointCP5;
 
 public class PointCP2 extends PointCP5{
 
-
+    private char typeCoord;
     
     private double Rho;
     private double Theta;
@@ -12,6 +12,7 @@ public class PointCP2 extends PointCP5{
       
       this.Rho = Rho;
       this.Theta = Theta;
+      this.typeCoord = "P";
 
     }
 
@@ -38,9 +39,14 @@ public class PointCP2 extends PointCP5{
         return (Math.sin(Math.toRadians(Theta)) * Rho);
     }
 
+    public String get_typeCoord(){
+        return typeCoord;
+    }
+
+
     public String toString()
     {
-        return "\n Store Polar [" + getRho() + "," +getTheta() +"]" + "\n The Cartesian coordinates are computed : (" +getX()+ "," +getY() +")";
+        return "\n Stored Polar coordinates [" + getRho() + "," +getTheta() +"]" + "\n The Cartesian coordinates are computed : (" +getX()+ "," +getY() +")";
     }
 
 

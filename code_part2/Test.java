@@ -13,7 +13,7 @@ public class Test{
     
         Employee employee = new Employee("Faleao", 40, 15.50, addresses);
     
-        System.out.println(employee.toString());
+        System.out.println(employee);
 
     }
 }

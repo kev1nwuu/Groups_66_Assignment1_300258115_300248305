@@ -10,7 +10,8 @@ public abstract class PointCP5{
     public abstract double getX();
 
     public abstract double getY();
-
+    
+    public abstract String get_typeCoord();
 
     public abstract String toString();
 

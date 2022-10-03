@@ -4,7 +4,7 @@ import design5.PointCP5;
 
 public class PointCP3 extends PointCP5{
 
-
+    private char typeCoord;
     
     private double X;
     private double Y;
@@ -14,7 +14,7 @@ public class PointCP3 extends PointCP5{
       
       this.X = X;
       this.X = Y;
-
+      this.typeCoord = "C";
     }
 
 
@@ -40,9 +40,13 @@ public class PointCP3 extends PointCP5{
         return Y;
     }
 
+    public String get_typeCoord(){
+        return typeCoord;
+    }
+
     public String toString()
     {
-        return "\n Store Cartesian [" + getX() + "," +getY() +"]" + "\n The polar coordinates are computed : (" +getRho()+ "," +getTheta() +")";
+        return "\n Stored Cartesian coordinates [" + getX() + "," +getY() +"]" + "\n The polar coordinates are computed : (" +getRho()+ "," +getTheta() +")";
     }
 
     
