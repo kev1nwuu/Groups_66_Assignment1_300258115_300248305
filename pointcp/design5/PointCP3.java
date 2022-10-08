@@ -1,6 +1,6 @@
 
 
-public class PointCP3 {
+public class PointCP3 extends PointCP5{
 
     
     private double X;
@@ -37,11 +37,12 @@ public class PointCP3 {
         return Y;
     }
 
-    public void convertStorageToPolar(){
-    }
+    public PointCP2 convertStorageToPolar(){
+      return new PointCP2(getRho(), getTheta());
+    } 
 
-    public void convertStorageToCartesian()
-    {
+    public PointCP3 convertStorageToCartesian()
+    { return new PointCP3(X, Y);
     } 
 
     public double getDistance(PointCP3 pointB)
@@ -56,7 +57,7 @@ public class PointCP3 {
 
 
 
-  public PointCP3 rotatePoint(double rotation)
+  public PointCP5 rotatePoint(double rotation)
   {
     double radRotation = Math.toRadians(rotation);
         

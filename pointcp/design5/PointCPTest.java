@@ -3,7 +3,7 @@
 // license found at http://www.site.uottawa.ca/school/research/lloseng/
 
 import java.io.*;
-import java. util. Scanner;
+
 /**
  * This class prompts the user for a set of coordinates, and then 
  * converts them from polar to cartesian or vice-versa.
@@ -33,19 +33,26 @@ public class PointCPTest
    */
   public static void main(String[] args)
   {
-    PointCP point;
+    PointCP5 point;
 
-    // System.out.println("Cartesian-Polar Coordinates Conversion Program");
+    System.out.println("Cartesian-Polar Coordinates Conversion Program");
 
-    // // Check if the user input coordinates from the command line
-    // // If he did, create the PointCP object from these arguments.
-    // // If he did not, prompt the user for them.
+    // Check if the user input coordinates from the command line
+    // If he did, create the PointCP object from these arguments.
+    // If he did not, prompt the user for them.
     try
     {
-        point = new PointCP(args[0].toUpperCase().charAt(0), 
-        Double.valueOf(args[1]).doubleValue(), 
+        char temp  = args[0].toUpperCase().charAt(0);
+        if(temp == 'P'){
+            point = new PointCP2(Double.valueOf(args[1]).doubleValue(), 
+        Double.valueOf(args[2]).doubleValue());
+
+    }else{ 
+        point = new PointCP3(Double.valueOf(args[1]).doubleValue(), 
         Double.valueOf(args[2]).doubleValue());
     }
+        }
+      
     catch(Exception e)
     {
       // If we arrive here, it is because either there were no
@@ -64,42 +71,10 @@ public class PointCPTest
       }
     }
     System.out.println("\nYou entered:\n" + point);
-    point.convertStorageToCartesian();
+    point = point.convertStorageToCartesian();
     System.out.println("\nAfter asking to store as Cartesian:\n" + point);
-    point.convertStorageToPolar();
+    point = point.convertStorageToPolar();
     System.out.println("\nAfter asking to store as Polar:\n" + point);
-  
-    
-    
-    ////////////////////////////////////////////////////////////////////////////////
-    // PointCP2 Tests//
-
-    PointCP2 ploar;
-    
-    System.out.println("Design 2 Polar Program:");
-    
-    try{
-      Scanner input = new Scanner(System.in);
-      System.out.print("\nEnter the value of Rho using a decimal point(.): ");  
-      double Rho = input.nextDouble();
-      System.out.print("Enter the value of Theta using a decimal point(.): ");
-      double Theta = input.nextDouble();
-
-      ploar = new PointCP2(Rho, Theta);
-      
-      
-      System.out.println("\nReslt: " + ploar);
-    
-    }
-    catch(Exception e){
-      if(args.length != 0)
-        System.out.println("Invalid arguments on command line");
-
-      else{
-        System.out.println("both Rho and Theta are double");
-        
-      }
-    }
   }
 
   /**
@@ -112,7 +87,7 @@ public class PointCPTest
    * @throws IOException If there is an error getting input from
    *         the user.
    */
-  private static PointCP getInput() throws IOException
+  private static PointCP5 getInput() throws IOException
   {
     byte[] buffer = new byte[1024];  //Buffer to hold byte input
     boolean isOK = false;  // Flag set if input correct
@@ -190,6 +165,10 @@ public class PointCPTest
       isOK = false;
     }
     //Return a new PointCP object
-    return (new PointCP(coordType, a, b));
+    if (coordType == 'P'){
+        return new PointCP2(a, b);
+    }else{
+        return new PointCP3(a, b);
+    }
   }
 }

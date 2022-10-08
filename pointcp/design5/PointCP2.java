@@ -1,6 +1,6 @@
 
 
-public class PointCP2{
+public class PointCP2 extends PointCP5{
 
     
     
@@ -41,11 +41,12 @@ public class PointCP2{
 
     
     
-    public void convertStorageToPolar(){
+    public PointCP2 convertStorageToPolar(){
+        return new PointCP2(Rho, Theta);
     }
 
-    public void convertStorageToCartesian()
-    {
+    public PointCP3 convertStorageToCartesian()
+    { return new PointCP3(getX(), getY());
     }    
     
 
